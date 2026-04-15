@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexoBank - Panel de Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../index/index.html" class="logo-link">
+            <div class="logo">
+                <img src="../../images/logoNexo.png" alt="NexoBank Logo" class="logo-img">
+                Nexo<span>Bank</span>
+            </div>
+        </a>
+        <nav class="nav-user">
+            <a href="#" class="user-profile"><i class="fa-solid fa-circle-user"></i> Mi Perfil</a>
+            <a href="../index/index.html" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+        </nav>
+    </header>
+
+    <main class="panel-container">
+        <img src="../../images/fondo_Panel.jpg" alt="Fondo" class="bg-image-fixed">
+        <div class="bg-overlay"></div>
+
+        <section class="panel-content">
+            <div class="balance-card">
+                <p class="balance-label">Saldo Disponible</p>
+                <h2 id="current-balance">$ 0.00 <small>COP</small></h2>
+            </div>
+
+            <div class="actions-grid">
+                <a href="../consignar/consignar.html" class="action-btn" title="Consignar">
+                    <i class="fa-solid fa-money-bill-transfer"></i>
+                    <span>Consignar Dinero</span>
+                </a>
+                
+                <button class="action-btn" title="Retirar">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <span>Retirar Dinero</span>
+                </button>
+
+                <button class="action-btn" title="Transferir">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Transferir</span>
+                </button>
+
+                <button class="action-btn" title="Movimientos">
+                    <i class="fa-solid fa-list-ul"></i>
+                    <span>Ver Movimientos</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <p><strong>Línea de atención:</strong> 01-8000-NEXO-BK</p>
+                <p>Bogotá: (601) 555-0199</p>
+            </div>
+            
+            <div class="footer-section social-icons">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            </div>
+
+            <div class="footer-section sfc">
+                <img src="../../images/superfinanciera.png" alt="Vigilado Superintendencia Financiera" class="sfc-logo">
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 NexoBank Financial Bank. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

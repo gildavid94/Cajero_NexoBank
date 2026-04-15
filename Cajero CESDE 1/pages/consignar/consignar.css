@@ -1,0 +1,186 @@
+:root {
+    --primary-color: #003366;
+    --secondary-color: #00aaff;
+    --bg-dark: #0b1218; /* Azul casi negro para fondo genérico */
+    --white: #ffffff;
+    --text-gray: #94a3b8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* FONDO GENÉRICO: Limpio, profesional y no satura */
+    background: radial-gradient(circle at center, #0f1c2e 0%, var(--bg-dark) 100%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER (Mismo estilo que el Panel) */
+header {
+    background: var(--primary-color);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.logo-link { text-decoration: none; color: inherit; }
+.logo { display: flex; align-items: center; gap: 12px; font-weight: 700; text-transform: uppercase; }
+.logo span { color: var(--secondary-color); }
+.logo-img { height: 35px; }
+
+.btn-nav {
+    text-decoration: none; color: var(--white);
+    font-size: 0.9rem; font-weight: 600; transition: 0.3s;
+}
+.btn-nav:hover { color: var(--secondary-color); }
+
+/* CONTENEDOR CENTRAL */
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* TARJETA DE OPERACIÓN (Sin Glassmorphism extremo para máxima legibilidad) */
+.transaction-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 50px 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+}
+
+.icon-circle {
+    width: 60px; height: 60px;
+    background: rgba(0, 170, 255, 0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+}
+
+.card-header h2 { font-size: 1.8rem; margin-bottom: 10px; }
+.card-header p { color: var(--text-gray); font-size: 0.9rem; margin-bottom: 40px; }
+
+/* FORMULARIO */
+.form-group { text-align: left; margin-bottom: 30px; }
+.form-group label { display: block; margin-bottom: 12px; font-size: 0.85rem; color: var(--text-gray); }
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.currency-prefix {
+    position: absolute; left: 20px;
+    font-size: 1.5rem; font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 18px 20px 18px 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 600;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-wrapper input:focus {
+    border-color: var(--secondary-color);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.helper-text { display: block; margin-top: 10px; font-size: 0.75rem; color: var(--text-gray); }
+
+/* BOTÓN DE ACCIÓN */
+.btn-submit {
+    width: 100%; padding: 18px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border: none; border-radius: 12px;
+    font-weight: 700; font-size: 1rem;
+    cursor: pointer; transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: var(--white);
+    transform: translateY(-2px);
+}
+
+/* BANNER DE SALDO */
+.balance-display {
+    background: rgba(0, 170, 255, 0.08);
+    border: 1px solid rgba(0, 170, 255, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.balance-display span {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.balance-display strong {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+/* ICONO DENTRO DEL INPUT */
+.icon-inside {
+    position: absolute;
+    left: 15px;
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+#numero-cuenta {
+    padding-left: 45px !important;
+}
+
+/* OPCIÓN RÁPIDA (CHECKBOX ESTILIZADO) */
+.quick-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.quick-option input[type="checkbox"] {
+    cursor: pointer;
+    accent-color: var(--secondary-color);
+}
+
+.quick-option label {
+    font-size: 0.8rem !important;
+    color: var(--secondary-color) !important;
+    cursor: pointer;
+    margin-bottom: 0 !important;
+}
+
+.quick-option label:hover {
+    text-decoration: underline;
+}
+
+footer { padding: 20px; text-align: center; color: var(--text-gray); font-size: 0.7rem; }

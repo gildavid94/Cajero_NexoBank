@@ -1,0 +1,235 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+   ========================================= */
+:root {
+    --primary-color: #003366;
+    --secondary-color: #00aaff;
+    --bg-dark: #0b1218;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-dark); /* Fondo oscuro para que no haya destellos blancos */
+    overflow-x: hidden;
+}
+
+/* =========================================
+   HEADER DINÁMICO
+   ========================================= */
+header {
+    background: rgba(0, 51, 102, 0.1); 
+    backdrop-filter: blur(8px);
+    color: var(--white);
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    
+    animation: change-header linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+}
+
+@keyframes change-header {
+    to {
+        background: var(--primary-color);
+        padding: 0.8rem 5%;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.logo span { color: var(--secondary-color); }
+.logo-img { height: 40px; width: auto; }
+
+.btn-nav {
+    text-decoration: none;
+    border: 2px solid var(--secondary-color);
+    color: var(--white);
+    padding: 8px 22px;
+    border-radius: 50px;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.btn-nav:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* =========================================
+   HERO SECTION (CENTRADO TOTAL)
+   ========================================= */
+.hero {
+    position: relative;
+    height: 100vh; /* Ocupa toda la pantalla */
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    text-align: center;      /* Centrado de texto */
+    color: var(--white);
+    overflow: hidden;
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(11, 18, 24, 0.5), rgba(0, 51, 102, 0.8));
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    width: 90%;
+    max-width: 850px;
+    padding: 20px;
+}
+
+.hero h1 { 
+    font-size: 4.2rem; 
+    font-weight: 700; 
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.hero p { 
+    font-size: 1.4rem; 
+    margin-bottom: 2.5rem; 
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+.btn-primary {
+    display: inline-block; /* Asegura que se comporte como botón centrado */
+    text-decoration: none;
+    padding: 18px 50px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(0, 170, 255, 0.3);
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--white);
+    transform: translateY(-5px);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    background: var(--bg-dark);
+    color: #94a3b8;
+    padding: 60px 5% 30px;
+    position: relative;
+    z-index: 10; /* Asegura que el footer se vea sobre cualquier capa */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* =========================================
+   ESTILO DE ICONOS DE REDES (FontAwesome)
+   ========================================= */
+.social-icons {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.social-icons a {
+    color: var(--white); /* Color inicial blanco */
+    font-size: 1.6rem;    /* Tamaño perfecto */
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Efecto al pasar el mouse: cambia al azul cian de NexoBank */
+.social-icons a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-5px); /* Pequeño salto hacia arriba */
+}
+
+/* Ajuste específico para el logo de X si quieres que se vea un poco más estilizado */
+.fa-x-twitter {
+    font-size: 1.4rem; 
+}
+
+.sfc-logo {
+    height: 48px;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 25px;
+}
+
+/* Quitar estilos por defecto del enlace del logo */
+.logo-link {
+    text-decoration: none;
+    color: inherit; /* Mantiene el color blanco y azul del logo */
+    display: inline-block;
+}
+
+.logo-link:hover {
+    opacity: 0.9; /* Pequeño efecto visual al pasar el mouse */
+    transition: 0.3s;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    .hero p { font-size: 1.1rem; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
