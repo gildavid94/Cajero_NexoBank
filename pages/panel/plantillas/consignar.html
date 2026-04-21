@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexoBank - Consignar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../panel/panel.html" class="logo-link">
+            <div class="logo">
+                <img src="../../images/logoNexo.png" alt="NexoBank Logo" class="logo-img">
+                Nexo<span>Bank</span>
+            </div>
+        </a>
+        <nav>
+            <a href="../panel/panel.html" class="btn-nav"><i class="fa-solid fa-chevron-left"></i> Volver al Menú</a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <section class="transaction-card">
+            <div class="card-header">
+                <div class="icon-circle">
+                    <i class="fa-solid fa-money-bill-trend-up"></i>
+                </div>
+                <h2>Consignar Dinero</h2>
+        
+                <div class="balance-display">
+                    <span>Tu Saldo Disponible:</span>
+                    <strong id="saldo-actual">$ 2.500.000</strong>
+                </div>
+            </div>
+
+            <form id="form-consignar">
+                <div class="form-group">
+                    <label>Número de Cuenta Destino</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-hashtag icon-inside"></i>
+                        <input type="text" id="numero-cuenta" placeholder="Ej: 123456789" required>
+                    </div>
+            
+                    <div class="quick-option">
+                        <input type="checkbox" id="check-mi-cuenta">
+                        <label for="check-mi-cuenta">Consignar a mi propia cuenta</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Monto a Consignar (COP)</label>
+                    <div class="input-wrapper">
+                        <span class="currency-prefix">$</span>
+                        <input type="text" id="monto-visual" placeholder="0" required>
+                    </div>
+                    <small class="helper-text">Monto mínimo: $1.000 COP</small>
+                </div>
+
+                <button type="button" id="btn-confirmar" class="btn-submit">Confirmar Transacción</button>
+            </form>
+        </section>
+
+       <script src="consignar.js"></script>
+    </main>
+
+    <footer>
+        <p class="copyright">&copy; 2026 NexoBank Financial Bank.</p>
+    </footer>
+
+</body>
+</html>

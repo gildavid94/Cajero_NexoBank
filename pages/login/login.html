@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexoBank - Iniciar Sesión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../index/index.html" class="logo-link">
+            <div class="logo">
+                <img src="../../images/logoNexo.png" alt="NexoBank Logo" class="logo-img">
+                Nexo<span>Bank</span>
+            </div>
+        </a>
+        <nav>
+            <a href="../index/index.html" class="btn-nav">Inicio</a>
+            <a href="../registro/registro.html" class="btn-nav">Registrarse</a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <img src="../../images/fondo_Banco.avif" alt="Fondo" class="bg-image-fixed">
+        <div class="bg-overlay"></div>
+
+        <section class="auth-card">
+            <div class="card-header">
+                <i class="fa-solid fa-shield-halved login-icon"></i>
+                <h2>Ingreso Seguro</h2>
+                <p>Bienvenido de nuevo a tu banca en línea</p>
+            </div>
+
+            <div id="login-status" class="status-banner info">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span id="status-text">Tienes 3 intentos antes de bloquear tu cuenta.</span>
+            </div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label><i class="fa-solid fa-user"></i> Usuario</label>
+                    <input type="text" id="username" placeholder="Tu nombre de usuario" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-lock"></i> Contraseña</label>
+                    <input type="password" id="password" placeholder="Ingresa tu clave" required>
+                </div>
+
+                <div class="form-options">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" id="btn-ingresar" class="btn-submit">Ingresar</button>
+                
+                <p class="redirect-text">¿Aún no eres cliente? <a href="../registro/registro.html">Regístrate aquí</a></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <p><strong>Línea de atención:</strong> 01-8000-NEXO-BK</p>
+                <p>Bogotá: (601) 555-0199</p>
+            </div>
+            
+            <div class="footer-section social-icons">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            </div>
+
+            <div class="footer-section sfc">
+                <img src="../../images/superfinanciera.png" alt="Vigilado" class="sfc-logo">
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 NexoBank Financial Bank. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="login.js"></script>
+
+</body>
+</html>

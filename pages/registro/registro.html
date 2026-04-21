@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexoBank - Registro de Cliente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="registro.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../index/index.html" class="logo-link">
+            <div class="logo">
+                <img src="../../images/logoNexo.png" alt="NexoBank Logo" class="logo-img">
+                Nexo<span>Bank</span>
+            </div>
+        </a>
+        <nav>
+            <a href="../index/index.html" class="btn-nav">Inicio</a>
+            <a href="../login/login.html" class="btn-nav">Iniciar Sesión</a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <img src="../../images/fondo_Banco.avif" alt="Fondo" class="bg-image-fixed">
+        <div class="bg-overlay"></div>
+
+        <section class="auth-card">
+            <div class="card-header">
+                <h2>Crea tu Cuenta</h2>
+                <p>Regístrate para acceder a tu sucursal virtual</p>
+            </div>
+
+            <form id="form-registro">
+                
+                <div class="form-group">
+                    <label><i class="fa-solid fa-id-card"></i> Identificación</label>
+                    <input type="text" id="reg-id" placeholder="Ingresa tu documento" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fa-solid fa-signature"></i> Nombre Completo</label>
+                    <input type="text" id="reg-nombre" placeholder="Ej: Juan Pérez" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-phone"></i> Número de Celular</label>
+                    <div class="phone-container">
+                        <select id="reg-indicativo" class="select-country">
+                            <option value="+57">🇨🇴 +57</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+34">🇪🇸 +34</option>
+                            <option value="+52">🇲🇽 +52</option>
+                        </select>
+                        <input type="tel" id="reg-celular" placeholder="300 123 4567" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-user"></i> Usuario</label>
+                    <input type="text" id="reg-username" placeholder="Elige un nombre de usuario" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-lock"></i> Contraseña</label>
+                    <input type="password" id="reg-pass" placeholder="Mínimo 8 caracteres" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-shield-check"></i> Confirmar Contraseña</label>
+                    <input type="password" id="reg-pass-confirm" placeholder="Repite tu contraseña" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-wallet"></i> Productos a adquirir</label>
+                    <div class="products-grid">
+                        <label class="product-option">
+                            <input type="checkbox" name="producto" value="Cuenta de Ahorros">
+                            <span>Cuenta de Ahorros</span>
+                        </label>
+                        <label class="product-option">
+                            <input type="checkbox" name="producto" value="Cuenta Corriente">
+                            <span>Cuenta Corriente</span>
+                        </label>
+                        <label class="product-option">
+                            <input type="checkbox" name="producto" value="Tarjeta de Crédito">
+                            <span>Tarjeta de Crédito</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Finalizar Registro</button>
+                
+                <p class="redirect-text">¿Ya tienes una cuenta? <a href="../login/login.html">Inicia Sesión</a></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <p><strong>Línea de atención:</strong> 01-8000-NEXO-BK</p>
+                <p>Bogotá: (601) 555-0199</p>
+            </div>
+            
+            <div class="footer-section social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+            </div>
+
+            <div class="footer-section sfc">
+                <img src="../../images/superfinanciera.png" alt="Vigilado" class="sfc-logo">
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 NexoBank Financial Bank. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="registro.js"></script>
+</body>
+</html>

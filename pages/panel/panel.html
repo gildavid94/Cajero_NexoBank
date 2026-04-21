@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexoBank - Panel de Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../index/index.html" class="logo-link">
+            <div class="logo">
+                <img src="../../images/logoNexo.png" alt="NexoBank Logo" class="logo-img">
+                Nexo<span>Bank</span>
+            </div>
+        </a>
+        <nav class="nav-user">
+            <a href="#" class="user-profile" onclick="cambiarInterfaz('perfil')">
+                <i class="fa-solid fa-circle-user"></i> <span id="user-name-header">Cargando...</span>
+            </a>
+            <a href="../index/index.html" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+        </nav>
+    </header>
+
+    <main class="panel-container">
+        <img src="../../images/fondo_Panel.jpg" alt="Fondo" class="bg-image-fixed">
+        <div class="bg-overlay"></div>
+
+        <section class="panel-content">
+            
+            <div id="btn-volver-superior" style="display: none;">
+                <button onclick="cambiarInterfaz('dashboard')" class="btn-back">
+                    <i class="fa-solid fa-chevron-left"></i> Volver al menú
+                </button>
+            </div>
+
+            <div class="balance-card">
+                <div class="balance-info">
+                    <h3>Saldo Disponible</h3>
+                    <div class="balance-container">
+                        <span id="user-balance" class="balance-text hidden-balance">$ 2.500.000</span>
+                        <button type="button" id="toggle-visibility" class="btn-eye" title="Mostrar/Ocultar Saldo">
+                            <i class="fa-regular fa-eye-slash" id="eye-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="main-content-spa">
+                
+                <div id="view-dashboard" class="actions-grid">
+                    <button onclick="cambiarInterfaz('consignar')" class="action-btn" title="Consignar">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                        <span>Consignar Dinero</span>
+                    </button>
+                    
+                    <button onclick="cambiarInterfaz('retirar')" class="action-btn" title="Retirar">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                        <span>Retirar Dinero</span>
+                    </button>
+
+                    <button onclick="cambiarInterfaz('transferir')" class="action-btn" title="Transferir">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Transferir</span>
+                    </button>
+
+                    <button onclick="cambiarInterfaz('movimientos')" class="action-btn" title="Movimientos">
+                        <i class="fa-solid fa-list-ul"></i>
+                        <span>Ver Movimientos</span>
+                    </button>
+                </div>
+
+
+                <div id="view-consignar" style="display: none;">
+                    <div class="transaction-container">
+                        <h2 class="view-title">Consignar a NexoBank</h2>
+                        <form class="spa-form">
+                            <div class="form-group-spa">
+                                <label>Número de Cuenta Destino</label>
+                                <input type="text" placeholder="Ej: 123456789">
+                            </div>
+                            <div class="form-group-spa">
+                                <label>Tipo de Cuenta Destino</label>
+                                <div class="type-chips">
+                                    <button type="button" class="type-chip active" onclick="seleccionarTipo(this)">Ahorros</button>
+                                    <button type="button" class="type-chip" onclick="seleccionarTipo(this)">Corriente</button>
+                                </div>
+                            </div>
+                            <div class="form-group-spa">
+                                <label>Monto a Consignar (COP)</label>
+                                <input type="text" placeholder="$ 0">
+                            </div>
+                            <button type="button" class="btn-confirm-spa">Confirmar Operación</button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div id="view-retirar" style="display: none;">
+                    <div class="transaction-container">
+                        <h2 class="view-title">Retirar Dinero</h2>
+                        <form class="spa-form">
+                            <p class="form-instruction">Selecciona un monto rápido o ingresa el valor:</p>
+                            
+                            <div class="quick-amounts">
+                                <button type="button" class="amount-chip" onclick="document.getElementById('monto-retirar').value='$ 50.000'">$ 50.000</button>
+                                <button type="button" class="amount-chip" onclick="document.getElementById('monto-retirar').value='$ 100.000'">$ 100.000</button>
+                                <button type="button" class="amount-chip" onclick="document.getElementById('monto-retirar').value='$ 200.000'">$ 200.000</button>
+                                <button type="button" class="amount-chip" onclick="document.getElementById('monto-retirar').value='$ 500.000'">$ 500.000</button>
+                            </div>
+
+                            <div class="form-group-spa">
+                                <label>Otro valor a retirar</label>
+                                <input type="text" id="monto-retirar" placeholder="$ 0">
+                            </div>
+
+                            <button type="button" class="btn-confirm-spa btn-withdraw">Confirmar Retiro</button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div id="view-transferir" style="display: none;">
+                    <div class="transaction-container">
+                        <h2 class="view-title">Transferir Dinero</h2>
+                        <form class="spa-form">
+                            
+                            <div class="form-group-spa">
+                                <label>Banco Destino</label>
+                                <select class="spa-select">
+                                    <option value="nexo">NexoBank</option>
+                                    <option value="bancolombia">Bancolombia</option>
+                                    <option value="davivienda">BBVA Colombia</option>
+                                    <option value="nequi">Davivienda</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group-spa">
+                                <label>Número de Cuenta</label>
+                                <input type="text" placeholder="Ej: 987654321">
+                            </div>
+
+                            <div class="form-group-spa">
+                                <label>Tipo de Cuenta</label>
+                                <div class="type-chips">
+                                    <button type="button" class="type-chip active" onclick="seleccionarTipo(this)">Ahorros</button>
+                                    <button type="button" class="type-chip" onclick="seleccionarTipo(this)">Corriente</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group-spa">
+                                <label>Monto a Transferir</label>
+                                <input type="text" placeholder="$ 0">
+                            </div>
+
+                            <button type="button" class="btn-confirm-spa">Realizar Transferencia</button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div id="view-movimientos" style="display: none;">
+                    <div class="transaction-container wide">
+                        <h2 class="view-title">Historial de Movimientos</h2>
+                        
+                        <div class="table-responsive">
+                            <table class="nexo-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Hora</th> <th>Operación</th>
+                                        <th>Cuenta Relacionada</th>
+                                        <th>Monto</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="movimientos-body">
+                                    <tr>
+                                        <td>15/04/2026</td>
+                                        <td>03:45 PM</td>
+                                        <td>Consignación</td>
+                                        <td>001-223344 (Ahorros)</td>
+                                        <td class="amount-plus">+ $ 500.000</td>
+                                        <td><span class="status-done">Exitoso</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>14/04/2026</td>
+                                        <td>10:20 AM</td>
+                                        <td>Retiro Cajero</td>
+                                        <td>---</td>
+                                        <td class="amount-minus">- $ 100.000</td>
+                                        <td><span class="status-done">Exitoso</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>12/04/2026</td>
+                                        <td>08:15 AM</td>
+                                        <td>Transferencia</td>
+                                        <td>998-776655 (Corriente)</td>
+                                        <td class="amount-minus">- $ 250.000</td>
+                                        <td><span class="status-done">Exitoso</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            
+            
+            <div id="view-perfil" class="profile-sidebar" style="display: none;">
+                <div class="profile-window">
+                    <button class="btn-close-profile" onclick="cambiarInterfaz('dashboard')">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    
+                    <h2 class="view-title">Mi Perfil</h2>
+                    
+                    <div class="profile-avatar-section">
+                        <div class="avatar-circle">
+                            <i class="fa-solid fa-user-gear"></i>
+                        </div>
+                        <p class="profile-id">ID Usuario: <span id="user-id-display"></span></p>
+                    </div>
+
+                    <form class="spa-form profile-form-sidebar">
+                        <div class="form-group-spa">
+                            <label>Nombre Completo</label>
+                            <input type="text" id="user-name-profile" value="" readonly class="input-view">
+                        </div>
+
+                        <div class="form-group-spa">
+                            <label>Correo Electrónico</label>
+                            <input type="email" value="usuario@cesde.edu.co" readonly class="input-view">
+                        </div>
+
+                        <div class="user-accounts-section">
+                            <label class="section-label">Mis Cuentas Nexo</label>
+                            <div class="account-item active-account">
+                                <i class="fa-solid fa-star"></i>
+                                <span>Ahorros: **** 4567 (Principal)</span>
+                            </div>
+                            </div>
+
+                        <div class="profile-actions">
+                            <button type="button" class="btn-edit-profile">
+                                <i class="fa-solid fa-user-pen"></i> Editar Información
+                            </button>
+                            <button type="button" class="btn-secondary-spa" id="btn-cambiar-pass">
+                                <i class="fa-solid fa-key"></i> Cambiar Contraseña
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <p><strong>Línea de atención:</strong> 01-8000-NEXO-BK</p>
+                <p>Bogotá: (601) 555-0199</p>
+            </div>
+            <div class="footer-section social-icons">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            </div>
+            <div class="footer-section sfc">
+                <img src="../../images/superfinanciera.png" alt="Vigilado Superintendencia Financiera" class="sfc-logo">
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 NexoBank Financial Bank. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="panel.js"></script>
+</body>
+</html>

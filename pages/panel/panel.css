@@ -1,0 +1,558 @@
+:root {
+    --primary-color: #003366;
+    --secondary-color: #00aaff;
+    --bg-dark: #0b1218;
+    --white: #ffffff;
+    --text-gray: #94a3b8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+header {
+    background: var(--primary-color);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo-link { text-decoration: none; color: inherit; }
+.logo { display: flex; align-items: center; gap: 12px; font-weight: 700; text-transform: uppercase; }
+.logo span { color: var(--secondary-color); }
+.logo-img { height: 40px; }
+
+.nav-user { display: flex; align-items: center; gap: 20px; }
+.user-profile { color: var(--white); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+.btn-logout { 
+    color: #ff4d5e; text-decoration: none; font-weight: 700; font-size: 0.9rem;
+    padding: 8px 15px; border: 1px solid #ff4d5e; border-radius: 50px; transition: 0.3s;
+}
+.btn-logout:hover { background: #ff4d5e; color: var(--white); }
+
+/* CONTENEDOR PRINCIPAL Y FONDO */
+.panel-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 5%;
+}
+
+.bg-image-fixed {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 1; filter: brightness(0.5);
+}
+
+.bg-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(11, 18, 24, 0.7), rgba(0, 51, 102, 0.8));
+    z-index: 2;
+}
+
+.panel-content {
+    position: relative; z-index: 3;
+    width: 100%; max-width: 900px;
+}
+
+/* NAVEGACIÓN SUPERIOR (BOTÓN VOLVER) */
+#btn-volver-superior {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+
+.btn-back {
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 8px 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn-back:hover { background: var(--secondary-color); color: var(--primary-color); transform: translateX(-5px); }
+
+/* CARTA DE SALDO */
+.balance-card {
+    width: fit-content; min-width: 320px;
+    margin: 0 auto 40px auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px; border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.balance-info h3 { font-size: 0.85rem; text-transform: uppercase; color: var(--text-gray); margin-bottom: 15px; }
+.balance-container { display: flex; align-items: center; justify-content: center; gap: 20px; }
+.balance-text { font-size: 2.2rem; font-weight: 700; color: var(--white); transition: 0.3s; }
+.hidden-balance { filter: blur(8px); opacity: 0.6; user-select: none; }
+
+.btn-eye {
+    background: transparent; border: none; color: var(--secondary-color);
+    font-size: 1.2rem; cursor: pointer; padding: 8px; border-radius: 50%; transition: 0.3s;
+}
+.btn-eye:hover { background: rgba(0, 170, 255, 0.1); }
+
+/* REJILLA DE ACCIONES */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.action-btn {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 35px; border-radius: 20px;
+    color: var(--white);
+    display: flex; flex-direction: column;
+    align-items: center; gap: 15px;
+    cursor: pointer; transition: 0.3s;
+}
+
+.action-btn i { font-size: 2.5rem; color: var(--secondary-color); }
+.action-btn span { font-weight: 600; font-size: 1rem; }
+.action-btn:hover { background: var(--secondary-color); transform: translateY(-10px); }
+.action-btn:hover i, .action-btn:hover span { color: var(--primary-color); }
+
+/* VISTA DE TRANSACCIÓN (CONSIGNAR) */
+.view-title { text-align: center; margin-bottom: 25px; font-size: 1.5rem; }
+.spa-form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 35px; border-radius: 20px;
+    max-width: 480px; margin: 0 auto;
+}
+
+.form-group-spa { margin-bottom: 25px; }
+.form-group-spa label { display: block; font-size: 0.85rem; color: var(--text-gray); margin-bottom: 10px; }
+.form-group-spa input {
+    width: 100%; padding: 14px; border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white; font-family: 'Poppins';
+    color: var(--secondary-color); /* El monto resaltará en azul cian */
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center; /* Centramos el monto para que se vea más profesional */
+}
+
+.btn-confirm-spa {
+    width: 100%; padding: 16px; background: var(--secondary-color);
+    border: none; border-radius: 12px; font-weight: 700; cursor: pointer;
+    margin-top: 10px; color: var(--primary-color);
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA RETIRAR --- */
+
+.form-instruction {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.quick-amounts {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.amount-chip {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.amount-chip:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    transform: scale(1.02);
+}
+
+.btn-withdraw {
+    background: #e63946 !important; /* Rojo elegante para el retiro */
+    color: white !important;
+}
+
+.btn-withdraw:hover {
+    background: #ff4d5e !important;
+}
+
+/* Contenedor de los botones de tipo de cuenta */
+.type-chips {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.type-chip {
+    flex: 1; /* Para que ambos midan lo mismo */
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.type-chip:hover {
+    background: rgba(0, 170, 255, 0.1);
+    border-color: var(--secondary-color);
+}
+
+/* Clase para el botón seleccionado */
+.type-chip.active {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: 700;
+    border-color: var(--secondary-color);
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
+}
+
+.spa-select {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.1); /* Fondo sutil */
+    backdrop-filter: blur(10px); /* Efecto cristal */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    outline: none;
+    appearance: none; /* Quita el diseño de Windows/Chrome */
+    
+    /* Añadimos una flecha personalizada elegante */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300aaff' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 18px;
+}
+
+.spa-select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.2);
+}
+
+/* IMPORTANTE: Estilo para las opciones (la lista que baja) */
+.spa-select option {
+    background-color: #1a252f; /* Un color sólido oscuro para que se lea bien */
+    color: white;
+    padding: 10px;
+}
+
+/* ==========================================================================
+   ESTILOS DE LA TABLA DE MOVIMIENTOS (NexoBank)
+   ========================================================================== */
+
+/* Contenedor principal de la vista de movimientos */
+.transaction-container.wide {
+    max-width: 950px; /* Un poco más ancho para que la tabla respire */
+    margin: 0 auto;
+}
+
+/* Contenedor con scroll lateral para móviles */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    background: rgba(255, 255, 255, 0.03); /* Fondo sutil traslúcido */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Estructura base de la tabla */
+.nexo-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ENCABEZADO: Aquí es donde aplicamos el color azul cian */
+.nexo-table thead tr {
+    background: rgba(0, 170, 255, 0.15); /* Fondo azul traslúcido */
+    border-bottom: 2px solid var(--secondary-color); /* Línea divisoria azul */
+}
+
+.nexo-table th {
+    padding: 18px 15px;
+    text-align: left;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--secondary-color); /* Texto en azul cian */
+}
+
+/* CUERPO DE LA TABLA: Filas de datos */
+.nexo-table tbody td {
+    padding: 15px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    vertical-align: middle;
+}
+
+/* Efecto hover: Resalta la fila cuando pasas el mouse */
+.nexo-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transition: background 0.3s ease;
+}
+
+/* Estilo específico para la columna de Hora */
+.nexo-table td:nth-child(2) {
+    color: var(--text-gray);
+    font-weight: 300;
+}
+
+/* COLORES DE MONTOS (Entradas y Salidas) */
+.amount-plus {
+    color: #4ade80; /* Verde esmeralda */
+    font-weight: 600;
+}
+
+.amount-minus {
+    color: #f87171; /* Rojo suave */
+    font-weight: 600;
+}
+
+/* ETIQUETA DE ESTADO (Badge) */
+.status-done {
+    background: rgba(74, 222, 128, 0.1);
+    color: #4ade80;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .nexo-table th, .nexo-table td {
+        padding: 12px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* --- ESTILOS DE PERFIL (VENTANA DERECHA) --- */
+
+.profile-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px; /* Ancho de la columna derecha */
+    height: 100vh;
+    background: rgba(11, 18, 24, 0.95); /* Fondo oscuro sólido o con blur */
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    padding: 80px 25px 30px; /* Padding superior para que no choque con el header */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    animation: slideInRight 0.4s ease-out; /* Cambiamos la animación */
+}
+
+.btn-close-profile {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background: transparent;
+    border: none;
+    color: var(--text-gray);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-close-profile:hover { color: #ff4d5e; }
+
+/* Estilo para inputs que solo muestran info */
+.input-view {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: var(--text-gray) !important;
+    cursor: default;
+    outline: none;
+}
+
+/* Sección de cuentas */
+.section-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.user-accounts-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: rgba(0, 170, 255, 0.05);
+    border-radius: 15px;
+    border: 1px dashed rgba(0, 170, 255, 0.2);
+}
+
+.account-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    padding: 8px 0;
+    color: var(--white);
+}
+
+.account-item i {
+    color: var(--secondary-color);
+    font-size: 0.7rem;
+}
+
+/* Botón de editar */
+.btn-edit-profile {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-edit-profile:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* Ajuste al formulario dentro de la sidebar */
+.profile-sidebar .spa-form {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* Nueva animación desde la derecha */
+@keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+/* Ajuste para móviles */
+@media (max-width: 480px) {
+    .profile-sidebar { width: 100%; }
+}
+
+.profile-avatar-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.avatar-circle {
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 170, 255, 0.1);
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.profile-id {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-secondary-spa {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+}
+
+.btn-secondary-spa:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Animación de entrada */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Color especial para el icono de perfil en el grid */
+.profile-icon {
+    background: rgba(0, 170, 255, 0.1);
+    color: var(--secondary-color);
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.action-btn:hover .profile-icon {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+
+/* FOOTER */
+footer {
+    background: var(--bg-dark); color: #94a3b8;
+    padding: 40px 5% 20px; border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.social-icons a { color: var(--white); font-size: 1.3rem; margin-right: 15px; }
+.sfc-logo { height: 40px; filter: brightness(0) invert(1); opacity: 0.6; }
+.copyright { text-align: center; font-size: 0.75rem; margin-top: 20px; }
